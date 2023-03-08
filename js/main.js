@@ -8,21 +8,27 @@
     e sarà stampato nel DOM quanti e quali numeri sono uguali.
 */
 
-const containerDom = document.querySelector('container');
-
+const containerDom = document.querySelector('.container');
 const computerNumber = [];
+console.log(computerNumber);
+let computerRandomLate = setTimeout(divCreationCom, 10000);
+console.log(computerRandomLate)
 
-
+function divCreationCom () {
+  containerComputer = document.createElement('div');
+  containerComputer.classList.add('computerElement');
+  containerComputer.append(computerNumber);
+  containerDom.append(containerComputer);
+  return containerDom;
+}
 
 //generazione di 5  numeri unici
+
 for ( let i = 1; i <= 5; i++){
   
   generatorUnique(computerNumber);
 
 }
-console.log(computerNumber);
-
-
 function generatorNumber (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min) ;
 }
