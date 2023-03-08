@@ -8,24 +8,40 @@
     e sarà stampato nel DOM quanti e quali numeri sono uguali.
 */
 
-
 const containerDom = document.querySelector('container');
 
-let computerNumber = [];
+const computerNumber = [];
 
-let userNumber = [];
 
-let rightUserNumber = [];
 
-for (let i = 1; i <= 5; i++) {
-    let number = setTimeout(randomNumberGen, 3000);
-    function randomNumberGen () {
-        const random = Math.floor(Math.random() * 100) + 1;
-        return random;
-    }
-    console.log(number);
-    computerNumber.push(number);
+//generazione di 5  numeri unici
+for ( let i = 1; i <= 5; i++){
+  
+  generatorUnique(computerNumber);
+
 }
-
 console.log(computerNumber);
 
+
+function generatorNumber (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min) ;
+}
+
+
+function generatorUnique (arrayCom) {
+
+  let numberRandom = false;
+  let uniqueNumber;
+
+  
+    if (!numberRandom) {
+
+      uniqueNumber = generatorNumber(1, 100 );
+
+    } else if(!arrayCom.includes(uniqueNumber)) {
+      numberRandom = true;
+    }
+    return arrayCom.push(uniqueNumber); 
+  
+  
+}
