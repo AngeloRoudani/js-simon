@@ -14,16 +14,17 @@ console.log(computerNumber);
 
 
 //Timeout dei numeri del computer
-let computerRandomLate = setTimeout(divCreationCom, 10000);
+let containerComputer = document.createElement('div');
+containerComputer.classList.add('computerElement');
+containerComputer.innerHTML = computerNumber[i];
+containerDom.append(containerComputer);
 
+console.log(containerDom)
 
-function divCreationCom () {
-  containerComputer = document.createElement('div');
-  containerComputer.classList.add('computerElement');
-  containerComputer.append(computerNumber);
-  containerDom.append(containerComputer);
-  return containerDom;
-}
+setTimeout(function computerNone () {
+      return containerComputer.classList.add('d-none');
+}, 10000);
+
 
 //introduzione numeri da parte dell'utente
 
@@ -36,11 +37,12 @@ setInterval(function() {
       if (!wrongNumber) {
         numberChoice = parseInt(prompt('Inserire un numero'));
       } else if (!userNumber.includes(numberChoice)){
-        wrongNumber = true
+        wrongNumber;
       }
-      userNumber.push(numberChoice);
+      return userNumber.push(numberChoice);
     }
   }, 10500);
+
 //generazione di 5  numeri unici
 
 for ( let i = 1; i <= 5; i++){
